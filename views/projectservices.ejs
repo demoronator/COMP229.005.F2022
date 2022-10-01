@@ -1,4 +1,4 @@
-<%- include partials/header.ejs -%>
+<%- include("partials/header") -%>
 
     <% if (title == "Projects") { %>
         <div class="container mt-3">
@@ -61,7 +61,8 @@
                 </tr>
             </tbody>
             </table>
+            <a href="/pdf/sample.pdf" class="btn btn-primary">PDF of my Services</a>
         </div>
     <% } %>
 
-<%- include partials/footer.ejs -%>
+<%- include("partials/footer") -%>
