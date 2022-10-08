@@ -1,3 +1,7 @@
+// Student ID: 301215136
+// Name: Wonyoung Chung
+// Date: Oct 01, 2022
+
 var express = require('express');
 var router = express.Router();
 
@@ -10,6 +14,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// Renders the projects page
 router.get('/projects', function(req, res, next) {
   res.render('projectservices',
   {
