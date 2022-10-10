@@ -1,0 +1,57 @@
+<%- include ("../partials/header") -%>
+
+<!-- <%= inventoryList %> -->
+
+<!-- Main Content -->
+<main class="container">
+    <div class="row">
+        <h1><%= title %></h1>
+        <br>
+        <div>
+            <a href="inventory/add" class="btn btn-primary align-self-end">
+                <i class="fas fa-plus-circle"></i> Add a New Item
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <th>Size</th>
+                        <th>Tags</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i = 0; i < inventoryList.length; i++) { %>
+                        <tr>
+                            <td><%= inventoryList[i].item %></td>
+                            <td><%= inventoryList[i].qty %></td>
+                            <td><%= inventoryList[i].status %></td>
+                            <td>
+                                Height: <%= inventoryList[i].size.h %><br>
+                                Width: <%= inventoryList[i].size.w %><br>
+                                UOM: <%= inventoryList[i].size.uom %>
+                            </td>
+                            <td class="text-center"><%= inventoryList[i].tags %></td>
+                            <td>
+                                <a href="/inventory/edit/<%= inventoryList[i]._id %>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-edit"></i>
+                                    Edit
+                                </a>
+                                <a href="/inventory/delete/<%= inventoryList[i]._id %>" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+<%- include ("../partials/footer") -%>
