@@ -1,7 +1,7 @@
-const inventory = require("../models/inventory.model")
+const Inventory = require("../models/inventory.model")
 
 exports.inventoryList = function (req, res, next) {
-    inventory.find({}, function (err, inventoryList) {
+    Inventory.find({}, function (err, inventoryList) {
         if (err) {
             return next(err)
         }
@@ -12,7 +12,7 @@ exports.inventoryList = function (req, res, next) {
 module.exports.displayEditPage = (req, res, next) => {
     const id = req.params.id
 
-    inventory.findById(id, (err, item) => {
+    Inventory.findById(id, (err, item) => {
         if (err) {
             console.error(err)
             res.end(err)
@@ -26,7 +26,7 @@ module.exports.displayEditPage = (req, res, next) => {
 module.exports.processEditPage = (req, res, next) => {
     const id = req.params.id
 
-    const updatedItem = inventory({
+    const updatedItem = Inventory({
         _id: id,
         item: req.body.item,
         qty: req.body.qty,
@@ -41,7 +41,7 @@ module.exports.processEditPage = (req, res, next) => {
 
     // console.log(updatedItem)
 
-    inventory.updateOne({ _id: id }, updatedItem, (err) => {
+    Inventory.updateOne({ _id: id }, updatedItem, (err) => {
         if (err) {
             console.error(err)
             res.end(err)
@@ -59,7 +59,7 @@ module.exports.displayAddPage = (req, res, next) => {
 }
 
 module.exports.processAddPage = (req, res, next) => {
-    const newItem = new inventory({
+    const newItem = new Inventory({
         _id: req.body.id,
         item: req.body.item,
         qty: req.body.qty,
@@ -72,7 +72,7 @@ module.exports.processAddPage = (req, res, next) => {
         tags: req.body.tags.split(",").map(tag => tag.trim()),
     })
 
-    inventory.create(newItem, (err, item) => {
+    Inventory.create(newItem, (err, item) => {
         if (err) {
             console.error(err)
             res.end(err)
@@ -87,7 +87,7 @@ module.exports.processAddPage = (req, res, next) => {
 module.exports.performDelete = (req, res, next) => {
     const id = req.params.id
 
-    inventory.remove({ _id: id }, (err) => {
+    Inventory.remove({ _id: id }, (err) => {
         if (err) {
             console.error(err)
             res.end(err)
