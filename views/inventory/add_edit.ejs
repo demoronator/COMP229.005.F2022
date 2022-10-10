@@ -1,0 +1,111 @@
+<%- include("../partials/header") -%>
+
+<!-- Content for the Add_Edit page -->
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <h1><%= title %></h1>
+        </div>
+
+        <form class="form" method="POST">
+            <div class="form-group">
+                <input type="hidden" name="id" value="<%= item._id %>">
+                <label>Item Name
+                <input type="text" class="form-control"
+                    id="itemTextField"
+                    placeholder="Enter the Item Name"
+                    name="item"
+                    value="<%= item.item %>"
+                    required>
+                </label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Quantity
+                <input type="number" class="form-control"
+                    id="qtyTextField"
+                    placeholder="0"
+                    name="qty"
+                    value="<%= item.qty %>"
+                    required>
+                </label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Status
+                <input type="text" class="form-control"
+                    id="statusTextField"
+                    placeholder="Enter the Status"
+                    name="status"
+                    value="<%= item.status %>">
+                </label>
+            </div>
+            <br>
+            <!-- Card -->
+            <div class="card">
+                <div class="card-header">Size</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label>Height
+                        <input type="number" class="form-control"
+                            id="heightTextField"
+                            step="0.01"
+                            placeholder="0.00"
+                            name="size_h"
+                            value="<%= item.size.h %>"
+                            required>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Width
+                        <input type="number" class="form-control"
+                            id="widthTextField"
+                            step="0.01"
+                            placeholder="0.00"
+                            name="size_w"
+                            value="<%= item.size.w %>"
+                            required>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label>UOM
+                        <input type="text" class="form-control"
+                            id="uomTextField"
+                            placeholder="Enter the Unit of Measure"
+                            name="size_uom"
+                            value="<%= item.size.uom %>"
+                            required>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Tags <span class="text-muted">[use , to separate tags]</span>
+                <textarea class="form-control"
+                    id="tagsTextArea"
+                    placeholder="Enter the Tags"
+                    name="tags"
+                    required>
+                <%= item.tags %>
+                </textarea>
+                </label>
+            </div>
+            <br>
+
+            <button class="btn btn-primary" type="submit">
+                <i class="fas fa-save"></i>
+                Submit
+            </button>
+
+            <a href="/inventory/list" class="btn btn-warning">
+                <i class="fas fa-undo"></i>
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
+</main>
+<%- include("../partials/footer") -%>
