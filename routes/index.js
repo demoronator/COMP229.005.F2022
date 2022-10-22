@@ -1,30 +1,14 @@
-// Student ID: 301215136
-// Name: Wonyoung Chung
-// Date: Oct 01, 2022
-
 const express = require("express")
 const router = express.Router()
-const indexController = require("../controllers/index.controller")
+const controlerIndex = require("../controller/index")
 
 /* GET home page. */
-router.get("/", indexController.home)
-router.get("/projects", indexController.projects)
-router.get("/services", indexController.services)
+router.get("/", controlerIndex.home)
 
-router.get("/about", function(req, res, next) {
-  res.render("index",
-  {
-    title: "About Me",
-    name: "Wonyoung"
-  })
-})
+/* GET About page avaulable on http://localhost:3000/about . */
+router.get("/about", controlerIndex.about)
 
-router.get("/contact", function(req, res, next) {
-  res.render("index",
-  {
-     title: "Contact",
-     name: "Wonyoung"
-  })
-})
+/* GET Projects page. */
+router.get("/projects", controlerIndex.projects)
 
 module.exports = router
