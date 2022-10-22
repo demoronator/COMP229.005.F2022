@@ -1,9 +1,32 @@
 <%- include("partials/header") %>
-
-  <h1>
-    <%= title %>
-  </h1>
-  <p>Welcome to <%= title %>
-  </p>
-
-  <%- include("partials/footer") %>
+<main>
+  <div class="container my-5">
+    <div
+      class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg"
+    >
+      <div class="col-lg-9 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1 pb-5">
+          Solve your technology problems.
+        </h1>
+        <p class="lead">
+          Welcome to Dining Philosophers!<br />
+          I am an experienced software engineer studying Artificial
+          Intelligence.<br />
+          I have experience designing and developing computer games and web
+          applications, including crypto trading platforms. But I am open to new
+          challenges.<br />
+          <br />
+          To see my past projects, please visit
+          <a href="/projects"
+            ><i class="fas fa-diagram-project"></i> Projects</a
+          >
+          page.<br />
+          If you are interested in my personal life, please visit
+          <a href="/about"><i class="fas fa-mug-hot"></i> About Me</a>
+          page.<br />
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+<%- include("partials/footer") %>
