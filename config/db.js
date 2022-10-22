@@ -9,6 +9,6 @@ module.exports = function () {
     })
         .then(() => console.log("Connected to MongoDB..."))
         .catch(err => console.error("Could not connect to MongoDB..."))
-    
+
     return mongoose.connection
 }

@@ -5,8 +5,9 @@
  */
 const dbConfig = require("./config/db")
 const app = require("./config/app")
-const debug = require("debug")("comp299.005.f2022:server")
+const debug = require("debug")("comp229.005.f2022:server")
 const http = require("http")
+const configurePassport = require("./config/passport")
 
 /**
  * Get port from environment and store in Express.
@@ -23,6 +24,7 @@ const server = http.createServer(app)
 /**
  * Listen on provided port, on all network interfaces.
  */
+const passport = configurePassport()
 server.listen(port)
 server.on("error", onError)
 server.on("listening", onListening)
@@ -63,9 +65,11 @@ function onError(error) {
     case "EACCES":
       console.error(bind + " requires elevated privileges")
       process.exit(1)
+      break
     case "EADDRINUSE":
       console.error(bind + " is already in use")
       process.exit(1)
+      break
     default:
       throw error
   }
@@ -80,5 +84,5 @@ function onListening() {
     ? "pipe " + addr
     : "port " + addr.port
   debug("Listening on " + bind)
-  console.log(`Listening on http://localhost:${addr.port}`)
+  console.log(`Express app running on http://localhost:${port}`)
 }
