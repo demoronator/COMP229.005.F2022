@@ -1,6 +1,7 @@
-// Student ID: 301215136
-// Name: Wonyoung Chung
-// Date: Oct 01, 2022
+// File name: appclient.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
 
 console.log("app script is working.")
 
@@ -15,6 +16,19 @@ if (getTitle === "Inventory List") {
         })
     })
 }
+
+if (getTitle === "Contacts List") {
+    const deleteButtons = document.querySelectorAll(".btn-danger")
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            if (!confirm("Are you sure?")) {
+                e.preventDefault()
+                // TODO
+            }
+        })
+    })
+}
+
 if (getTitle === "Sign-up Form") {
     const confirm = document.querySelector("input[name=password_confirm]")
     confirm.addEventListener("change", onChange)
