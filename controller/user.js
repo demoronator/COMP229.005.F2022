@@ -83,8 +83,7 @@ module.exports.signup = function (req, res, next) {
 }
 
 module.exports.signout = function (req, res, next) {
-  req.logout()
-  res.redirect("/")
+  req.logout(() => res.redirect("/"))
 }
 
 module.exports.signin = function (req, res, next) {
