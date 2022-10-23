@@ -1,14 +1,14 @@
-// File name: inventory.js
+// File name: contacts.js
 // Student's name: Wonyoung Chung
 // StudentID: 301215136
 // Date: Oct 22, 2022
 
 const express = require("express")
 const router = express.Router()
-const inventoryController = require("../controller/inventory")
+const controlerContacts = require("../controller/contact")
 
 // Connect to our model
-const Inventory = require("../models/inventory")
+const Contact = require("../models/contact")
 
 // helper function for guard purposes
 function requireAuth(req, res, next) {
@@ -20,21 +20,20 @@ function requireAuth(req, res, next) {
     next()
 }
 
-/* GET list of items */
-router.get("/list", inventoryController.inventoryList)
+/* GET Contacts list page. */
+router.get("/list", requireAuth, controlerContacts.contactsList)
 
 // Routers for edit
-router.get("/edit/:id", requireAuth, inventoryController.displayEditPage)
-router.post("/edit/:id", requireAuth, inventoryController.processEditPage)
+router.get("/edit/:id", requireAuth, controlerContacts.displayEditPage)
+router.post("/edit/:id", requireAuth, controlerContacts.processEditPage)
 
 // Delete
-router.get("/delete/:id", requireAuth, inventoryController.performDelete)
-
+router.get("/delete/:id", requireAuth, controlerContacts.performDelete)
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get("/add", requireAuth, inventoryController.displayAddPage)
+router.get("/add", requireAuth, controlerContacts.displayAddPage)
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post("/add", requireAuth, inventoryController.processAddPage)
+router.post("/add", requireAuth, controlerContacts.processAddPage)
 
 module.exports = router

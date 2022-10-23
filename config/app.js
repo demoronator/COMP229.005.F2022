@@ -1,3 +1,8 @@
+// File name: app.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const createError = require("http-errors")
 const express = require("express")
 const path = require("path")
@@ -12,6 +17,7 @@ const passport = require("passport")
 const indexRouter = require("../routes/index")
 const usersRouter = require("../routes/users")
 const inventoryRouter = require("../routes/inventory")
+const contactsRouter = require("../routes/contacts")
 const app = express()
 
 app.use(session({
@@ -39,6 +45,7 @@ app.use(passport.session())
 app.use("/", indexRouter)
 app.use("/users", usersRouter)
 app.use("/inventory", inventoryRouter)
+app.use("/contacts", contactsRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

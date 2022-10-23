@@ -1,6 +1,12 @@
+// File name: index.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const express = require("express")
 const router = express.Router()
 const controlerIndex = require("../controller/index")
+const controlerMessage = require("../controller/message")
 
 /* GET home page. */
 router.get("/", controlerIndex.home)
@@ -18,6 +24,6 @@ router.get("/services", controlerIndex.services)
 router.get("/contact", controlerIndex.contact)
 
 /* POST Contact page. */
-router.post("/contact", controlerIndex.processSendMessage)
+router.post("/contact", controlerMessage.processSendMessage)
 
 module.exports = router
