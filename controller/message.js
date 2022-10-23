@@ -5,7 +5,7 @@
 
 const MessageModel = require("../models/message")
 
-exports.processSendMessage = (req, res, next) => {
+module.exports.processSendMessage = (req, res, next) => {
     const newItem = MessageModel({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
