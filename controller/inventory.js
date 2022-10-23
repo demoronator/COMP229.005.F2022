@@ -1,9 +1,13 @@
+// File name: inventory.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 // create a reference to the model
 const InventoryModel = require("../models/inventory")
 
 module.exports.inventoryList = function (req, res, next) {
     InventoryModel.find((err, inventoryList) => {
-        //console.log(inventoryList)
         if (err) {
             return console.error(err)
         }
@@ -19,7 +23,6 @@ module.exports.inventoryList = function (req, res, next) {
 
 module.exports.displayEditPage = (req, res, next) => {
     const id = req.params.id
-
     InventoryModel.findById(id, (err, itemToEdit) => {
         if (err) {
             console.log(err)
@@ -37,9 +40,7 @@ module.exports.displayEditPage = (req, res, next) => {
 }
 
 module.exports.processEditPage = (req, res, next) => {
-
     const id = req.params.id
-
     const updatedItem = InventoryModel({
         _id: req.body.id,
         item: req.body.item,
