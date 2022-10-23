@@ -1,3 +1,8 @@
+// File name: inventory.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 // create a reference to the model
 const InventoryModel = require("../models/inventory")
 

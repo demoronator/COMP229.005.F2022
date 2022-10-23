@@ -1,3 +1,8 @@
+// File name: user.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const User = require("../models/user")
 const passport = require("passport")
 

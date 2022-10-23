@@ -1,6 +1,7 @@
-// Student ID: 301215136
-// Name: Wonyoung Chung
-// Date: Oct 01, 2022
+// File name: appclient.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
 
 console.log("app script is working.")
 

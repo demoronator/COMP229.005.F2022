@@ -1,3 +1,8 @@
+// File name: local.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const passport = require("passport")
 const LocalStrategy = require("passport-local").Strategy
 const User = require("../models/user")

@@ -1,3 +1,8 @@
+// File name: app.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const createError = require("http-errors")
 const express = require("express")
 const path = require("path")

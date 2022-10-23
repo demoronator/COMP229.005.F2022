@@ -1,3 +1,8 @@
+// File name: index.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 exports.home = function (req, res, next) {
     console.log("===> Original URL: " + req.session.url)
     res.render("index", {

@@ -1,3 +1,8 @@
+// File name: user.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 const mongoose = require("mongoose")
 const crypto = require("crypto")
 const Schema = mongoose.Schema
