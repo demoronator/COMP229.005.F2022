@@ -1,3 +1,8 @@
+// File name: db.js
+// Student's name: Wonyoung Chung
+// StudentID: 301215136
+// Date: Oct 22, 2022
+
 // In real project, never expose your credentials in your code.
 const atlasDB = "mongodb+srv://dbuser:HTb2bUHYrZ4QSY-@cluster0.clwtsy8.mongodb.net/products?retryWrites=true&w=majority"
 const mongoose = require("mongoose")
