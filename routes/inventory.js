@@ -20,21 +20,16 @@ function requireAuth(req, res, next) {
     next()
 }
 
-/* GET list of items */
+// GET list of items
 router.get("/list", inventoryController.inventoryList)
 
-// Routers for edit
-router.get("/edit/:id", requireAuth, inventoryController.displayEditPage)
-router.post("/edit/:id", requireAuth, inventoryController.processEditPage)
+// PUT Route for editing an item
+router.put("/edit/:id", inventoryController.processEdit)
 
-// Delete
-router.get("/delete/:id", requireAuth, inventoryController.performDelete)
+// DELETE
+router.delete("/delete/:id", inventoryController.performDelete)
 
-
-/* GET Route for displaying the Add page - CREATE Operation */
-router.get("/add", requireAuth, inventoryController.displayAddPage)
-
-/* POST Route for processing the Add page - CREATE Operation */
-router.post("/add", requireAuth, inventoryController.processAddPage)
+// POST Route for processing the Add page - CREATE Operation
+router.post("/add", inventoryController.processAdd)
 
 module.exports = router
