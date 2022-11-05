@@ -3,12 +3,11 @@
 // StudentID: 301215136
 // Date: Oct 22, 2022
 
-// In real project, never expose your credentials in your code.
-const atlasDB = "mongodb+srv://dbuser:HTb2bUHYrZ4QSY-@cluster0.clwtsy8.mongodb.net/products?retryWrites=true&w=majority"
+const config = require("./config")
 const mongoose = require("mongoose")
 
 module.exports = function () {
-    mongoose.connect(atlasDB, {
+    mongoose.connect(config.ATLASDB, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

@@ -12,13 +12,14 @@ const dbConfig = require("./config/db")
 const app = require("./config/app")
 const debug = require("debug")("comp229.005.f2022:server")
 const http = require("http")
-const configurePassport = require("./config/passport")
+// const configurePassport = require("./config/passport")
+const passportConfig = require("./config/local")
 
 /**
  * Get port from environment and store in Express.
  */
 const db = dbConfig()
-const port = normalizePort(process.env.PORT || "3000")
+const port = normalizePort(process.env.PORT || "5000")
 app.set("port", port)
 
 /**
@@ -29,7 +30,7 @@ const server = http.createServer(app)
 /**
  * Listen on provided port, on all network interfaces.
  */
-const passport = configurePassport()
+const passport = passportConfig()
 server.listen(port)
 server.on("error", onError)
 server.on("listening", onListening)
