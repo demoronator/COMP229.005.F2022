@@ -79,7 +79,7 @@ module.exports.signin = function (req, res, next) {
               config.SECRETKEY,
               {
                 algorithm: "HS256",
-                expiresIn: "20min",
+                expiresIn: "5hour",
               }
             )
 
