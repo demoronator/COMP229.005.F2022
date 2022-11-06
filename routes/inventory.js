@@ -5,6 +5,7 @@
 
 const express = require("express")
 const router = express.Router()
+const passport = require("passport")
 const inventoryController = require("../controller/inventory")
 
 // Connect to our model
@@ -24,12 +25,12 @@ function requireAuth(req, res, next) {
 router.get("/list", inventoryController.inventoryList)
 
 // PUT Route for editing an item
-router.put("/edit/:id", inventoryController.processEdit)
+router.put("/edit/:id", passport.authenticate("tokencheck", { session: false }), inventoryController.processEdit)
 
 // DELETE
-router.delete("/delete/:id", inventoryController.performDelete)
+router.delete("/delete/:id", passport.authenticate("tokencheck", { session: false }), inventoryController.performDelete)
 
 // POST Route for processing the Add page - CREATE Operation
-router.post("/add", inventoryController.processAdd)
+router.post("/add", passport.authenticate("tokencheck", { session: false }), inventoryController.processAdd)
 
 module.exports = router
