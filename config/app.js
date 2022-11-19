@@ -11,11 +11,17 @@ const compress = require("compression")
 const bodyParser = require("body-parser")
 const methodOverride = require("method-override")
 const passport = require("passport")
+const cors = require("cors")
+
 const indexRouter = require("../routes/index")
 const usersRouter = require("../routes/users")
 const inventoryRouter = require("../routes/inventory")
 const contactsRouter = require("../routes/contacts")
 const app = express()
+
+// Enable CORS
+app.use(cors())
+app.options("*", cors())
 
 app.use(logger("dev"))
 app.use(express.json())
