@@ -50,7 +50,7 @@ module.exports.processEdit = (req, res, next) => {
                 uom: req.body.size.uom,
             },
             tags: (req.body.tags) ? req.body.tags.split(",").map(word => word.trim()) : "",
-            owner: (req.body.owner) ? req.body.owner : req.payload.id,
+            // owner: (req.body.owner) ? req.body.owner : req.payload.id,
         })
 
         InventoryModel.updateOne({ _id: id }, updatedItem, (err) => {
@@ -120,7 +120,7 @@ module.exports.processAdd = (req, res, next) => {
                 uom: req.body.size.uom,
             },
             tags: (req.body.tags) ? req.body.tags.split(",").map(word => word.trim()) : "",
-            owner: (req.body.owner) ? req.body.owner : req.payload.id,
+            // owner: (req.body.owner) ? req.body.owner : req.payload.id,
         })
 
         InventoryModel.create(newItem, (err, item) => {

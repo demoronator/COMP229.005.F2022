@@ -16,12 +16,15 @@ const authController = require("../controller/auth")
 router.get("/list", inventoryController.inventoryList)
 
 // PUT Route for editing an item
-router.put("/edit/:id", authController.requireAuth, authController.isAllowed, inventoryController.processEdit)
+// router.put("/edit/:id", authController.requireAuth, authController.isAllowed, inventoryController.processEdit)
+router.put("/edit/:id", inventoryController.processEdit)
 
 // DELETE
-router.delete("/delete/:id", authController.requireAuth, authController.isAllowed, inventoryController.performDelete)
+// router.delete("/delete/:id", authController.requireAuth, authController.isAllowed, inventoryController.performDelete)
+router.delete("/delete/:id", inventoryController.performDelete)
 
 // POST Route for processing the Add page - CREATE Operation
-router.post("/add", authController.requireAuth, inventoryController.processAdd)
+// router.post("/add", authController.requireAuth, inventoryController.processAdd)
+router.post("/add", inventoryController.processAdd)
 
 module.exports = router
