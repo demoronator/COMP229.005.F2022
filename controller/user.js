@@ -10,7 +10,7 @@ const config = require("../config/config")
 const { get } = require("mongoose")
 
 function getErrorMessage(err) {
-  console.log("===> Erro: " + err)
+  console.log(err)
   let message = ""
 
   if (err.code) {
@@ -23,11 +23,11 @@ function getErrorMessage(err) {
         message = "Something went wrong"
     }
   } else {
-    for (const errName in err.errors) {
-      if (err.errors[errName].message) message = err.errors[errName].message
-    }
+    err.errors.foreach((error) => {
+      if (err.errors[error].message)
+        message = err.errors[error].message
+    })
   }
-
   return message
 }
 
@@ -41,7 +41,6 @@ module.exports.signup = function (req, res, next) {
   user.save((err) => {
     if (err) {
       const message = getErrorMessage(err)
-
       return res.status(400).json({
         success: false,
         message: message,
@@ -88,7 +87,8 @@ module.exports.signin = function (req, res, next) {
               token: token,
             })
           })
-      } catch (error) {
+      }
+      catch (error) {
         console.log(error)
         return res.status(400).json({
           success: false,
@@ -96,4 +96,19 @@ module.exports.signin = function (req, res, next) {
         })
       }
     })(req, res, next)
+}
+
+exports.myProfile = async function (req, res, next) {
+  try {
+    const id = req.payload.id
+    const me = await User.findById(id).select("firstName lastName email username admin created")
+    res.status(200).json(me)
+  }
+  catch (error) {
+    console.log(error)
+    return res.status(400).json({
+      success: false,
+      message: getErrorMessage(error),
+    })
+  }
 }

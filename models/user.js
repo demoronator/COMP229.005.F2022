@@ -38,7 +38,8 @@ const UserSchema = mongoose.Schema(
         created: {
             type: Date,
             default: Date.now
-        }
+        },
+        admin: Boolean
     },
     {
         collection: "user"
