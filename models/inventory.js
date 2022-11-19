@@ -17,6 +17,10 @@ const inventoryModel = mongoose.Schema(
             h: Number,
             w: Number,
             uom: String
+        },
+        owner: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
         }
     },
     {

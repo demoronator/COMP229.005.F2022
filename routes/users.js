@@ -6,10 +6,17 @@
 const express = require("express")
 const router = express.Router()
 const usersController = require("../controller/user")
-const passport = require("passport")
+const authController = require("../controller/auth")
 
+// GET users listing
+router.get("/me", authController.requireAuth, usersController.myProfile)
+
+// router.get("/signup", usersController.renderSignup)
 router.post("/signup", usersController.signup)
 
+// router.get("/signin", usersController.renderSignin)
 router.post("/signin", usersController.signin)
+
+// router.get("/signout", usersController.renderSignout)
 
 module.exports = router
